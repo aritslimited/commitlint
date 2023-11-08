@@ -1,3 +1,10 @@
+# 1.0.0 (2023-11-08)
+
+
+### Features
+
+* **repo:** initial commit ([104ad50](https://github.com/aritslimited/commitlint/commit/104ad5010953924ced1245a11a150054b7e8825e))
+
 # [1.13.0](https://github.com/aritslimited/commitlint/compare/v1.12.0...v1.13.0) (2023-11-08)
 
 
