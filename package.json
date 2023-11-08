@@ -1,0 +1,133 @@
+{
+  "name": "@aritslimited/commitlint",
+  "private": false,
+  "version": "1.13.0",
+  "description": "",
+  "main": "dist/commitlint.config.js",
+  "source": "src/commitlint.config.ts",
+  "files": [
+    "LICENSE",
+    "dist"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "branches": [
+      {
+        "name": "main"
+      }
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "releaseRules": [
+            {
+              "type": "feat",
+              "release": "major"
+            },
+            {
+              "type": "fix",
+              "release": "minor"
+            },
+            {
+              "type": "docs",
+              "release": "patch"
+            },
+            {
+              "type": "refactor",
+              "release": "patch"
+            },
+            {
+              "type": "perf",
+              "release": "patch"
+            }
+          ]
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "package-lock.json",
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ],
+      "@semantic-release/exec"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aritslimited/commitlint.git"
+  },
+  "keywords": [
+    "commitlint",
+    "commit",
+    "lint",
+    "conventional",
+    "conventional-changelog",
+    "conventional-commits",
+    "conventional-commit",
+    "conventional-lint",
+    "conventional-linter",
+    "conventional-linting"
+  ],
+  "author": {
+    "name": "Emran Hossain",
+    "email": "emranffl.biz@gmail.com",
+    "url": "https://www.linkedin.com/in/emranffl/"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "npx tsc -w -p tsconfig.json",
+    "build": "rm -rf dist && npx tsc -p tsconfig.json",
+    "docify": "npx typedoc --plugin typedoc-plugin-markdown --out docs src/commitlint.config.ts --hideBreadcrumbs --hideInPageTOC && rm -r docs/README.md",
+    "format": "prettier --write .",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release --branches main",
+    "test": "jest",
+    "prepublishOnly": "npm run build",
+    "deploy": "pnpm run build && pnpm run test && pnpm run docify"
+  },
+  "dependencies": {
+    "boxen": "^7.1.1",
+    "chalk": "^5.3.0",
+    "commitizen": "^4.3.0",
+    "dotenv": "^16.3.1",
+    "inquirer": "^9.2.11",
+    "node-fetch": "^3.3.2",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^11.1.0",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^11.0.1",
+    "@semantic-release/release-notes-generator": "^12.1.0",
+    "@types/jest": "^29.5.5",
+    "@types/node": "^20.8.3",
+    "conventional-changelog-conventionalcommits": "^7.0.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.0.3",
+    "semantic-release": "^22.0.5",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.25.2",
+    "typedoc-plugin-markdown": "^3.16.0",
+    "typescript": "^5.2.2"
+  }
+}

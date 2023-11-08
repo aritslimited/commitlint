@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // resolution and module specifiers
+    "target": "ES6",
+    "module": "NodeNext",
+    "skipLibCheck": true,
+
+    // beautify
+    "removeComments": true,
+
+    // strictness
+    "strict": true,
+    "alwaysStrict": true,
+    "allowUnreachableCode": false,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+
+    // down grader helpers
+    "importHelpers": true,
+    "downlevelIteration": true
+  },
+
+  "files": ["src/commitlint.config.ts"]
+  // "exclude": ["src/LimitedInputPrompt.ts"]
+}

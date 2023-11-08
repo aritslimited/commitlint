@@ -1,0 +1,6 @@
+dist/*
+pnpm-lock.yaml
+package.json
+pnpmfile.js
+node_modules
+README.md
