@@ -21,6 +21,8 @@ else
   RESET=''
 fi
 
+echo "\n${BLUE}pnpm build${RESET}"
+
 pnpm build || {
   # + task fail block
 
