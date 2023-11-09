@@ -1,7 +1,7 @@
 {
   "name": "@aritslimited/commitlint",
   "private": false,
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "A commit linting commitizen adapter & branch naming convention tool tailored for ARITS Limited with Jira Issue & Project Tracking Software; to track commits to Jira issues and transition them to the next stage of development workflow automatically.",
   "main": "dist/commitlint.config.js",
   "source": "src/commitlint.config.ts",
