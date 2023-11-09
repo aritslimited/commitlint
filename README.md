@@ -37,7 +37,7 @@ yarn add -D @aritslimited/commitlint boxen chalk dotenv inquirer node-fetch tsli
 ```
 
 or
-  
+
 ```bash
 pnpm add -D @aritslimited/commitlint boxen chalk dotenv inquirer node-fetch tslib
 ```
@@ -85,24 +85,24 @@ This package supports the following environment files out of the box:
 This package requires the following environment variables to be set in any of the environment files mentioned above that are synced with your version control system (preferably **.env**):
 
 - `JIRA_BASE_URL`=https://aritsltd.atlassian.net/rest/api/2
-- `JIRA_PROJECT`=*your Jira project key* # e.g. TAF
-- `JIRA_ISSUE_FILTERS`=*your Jira issue filters* # e.g. "In Progress"
-- `JIRA_ISSUE_TRANSITION_FILTERS`=*your Jira issue transition filters* # e.g. "Send to QA"
+- `JIRA_PROJECT`=_your Jira project key_ # e.g. TAF
+- `JIRA_ISSUE_FILTERS`=_your Jira issue filters_ # e.g. "In Progress"
+- `JIRA_ISSUE_TRANSITION_FILTERS`=_your Jira issue transition filters_ # e.g. "Send to QA"
 
 and the following environment variables to be set in any of the environment files mentioned above that are **not** synced with your version control system (preferably **.env.local**):
 
-- `JIRA_API_USER`=*your Jira API user email*
-- `JIRA_API_TOKEN`=*your Jira API token* # [How to generate a Jira API token](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/)
+- `JIRA_API_USER`=_your Jira API user email_
+- `JIRA_API_TOKEN`=_your Jira API token_ # [How to generate a Jira API token](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/)
 
 ### Branch Naming Convention
 
 This package also provides a branch naming convention tool. To use it, include the following environment variables in any of the environment files mentioned above that are synced with your version control system (preferably **.env**):
 
-- `VALID_BRANCH_NAMES`=*your string of valid branch names separated by space* # e.g. "main staging dev ui"
+- `VALID_BRANCH_NAMES`=_your string of valid branch names separated by space_ # e.g. "main staging dev ui"
 
 > NB: Branch naming convention tool is optional feature that is **disabled** by default. To enable it, the `VALID_BRANCH_NAMES` environment variable(s) must be set.
 
-- `BRANCH_NAME_VALIDATING_REGEXP`=*your branch name validating regular expression* # e.g. "^(main|staging|dev|ui)\/[A-Z]{2,3}-[0-9]{1,5}\/[a-z0-9-]+$"
+- `BRANCH_NAME_VALIDATING_REGEXP`=_your branch name validating regular expression_ # e.g. "^(main|staging|dev|ui)\/[A-Z]{2,3}-[0-9]{1,5}\/[a-z0-9-]+$"
 
 `BRANCH_NAME_VALIDATING_REGEXP` is optional. Default validating regex expression is:
 
@@ -115,3 +115,9 @@ You can validate your regular expression [here](https://regexr.com/).
 ## License
 
 This package is open source and available under the [MIT License](LICENSE).
+
+## Contributors
+
+| Name                       | Contact                                      |
+|----------------------------|----------------------------------------------|
+| **Emran Hossain**          | [![GitHub](https://img.shields.io/badge/@emranffl-grey?logo=github)](https://github.com/emranffl) [![LinkedIn](https://img.shields.io/badge/@emranffl-blue?logo=linkedin)](https://www.linkedin.com/in/emranffl/) |
