@@ -1,0 +1,46 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# colors for terminal output
+if [ -t 1 ]; then
+  RED='\033[0;31m'
+  GREEN='\033[0;32m'
+  YELLOW='\033[0;33m'
+  BLUE='\033[0;34m'
+
+  BOLD_RED='\033[1;031m'
+  RESET='\033[0m'
+else
+# no colors for non-interactive shells (git source control in vscode)
+  RED=''
+  GREEN=''
+  YELLOW=''
+  BLUE=''
+
+  BOLD_RED=''
+  RESET=''
+fi
+
+pnpm build || {
+  # + task fail block
+
+  echo "\n${BOLD_RED}build${RESET} ${RED}failed. Git push aborted, fix the specified error and try again.${RESET}\n"
+  echo "\n\n${GREEN}Courtesy: https://www.linkedin.com/in/emranffl${RESET}\n\n"
+
+  # check if command ran from git source control in vscode
+  if ! [ -t 1 ]; then
+    # show error text in an alert box on Linux 
+    if command -v zenity &> /dev/null; then
+      zenity --error --text="'build' failed. Git push aborted, fix the errors and try again."
+    fi
+
+    # show error text in an alert box on macOS
+    if command -v osascript &> /dev/null; then
+      osascript -e 'display alert "build failed" message "Git push aborted, fix the errors and try again." as warning'
+    fi
+  fi
+
+  exit 1
+}
+
+exit 0

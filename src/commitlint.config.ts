@@ -1,8 +1,8 @@
 import "./dotenv.config.js"
 import { execSync } from "child_process"
-import { LimitedInputPrompt } from "./Components/LimitedInputPrompt.js"
 import { DotenvParseOutputExtended } from "./dotenv.config.js"
 import { branchLint } from "./branchlint.config.js"
+import { LimitedInputPrompt } from "./Components/LimitedInputPrompt"
 
 const requiredEnvVariables = [
   "JIRA_BASE_URL", // e.g. "https://jira.example.com/rest/api/2"
@@ -278,13 +278,14 @@ const handleUpdateJiraIssue = async (
     }
   })
 }
-
+import("inquirer/lib/prompts/input.js").then((m) => m.default)
 const prompter = async (cz: any, commit: any) => {
   // * lint the branch name if VALID_BRANCH_NAMES is defined
   process.env.VALID_BRANCH_NAMES &&
     (await branchLint(process.env.VALID_BRANCH_NAMES))
 
-  cz.registerPrompt("limitedInput", LimitedInputPrompt)
+  // * register the custom prompt
+  cz.registerPrompt("limitedInput", await LimitedInputPrompt())
 
   const binaryChoices = [
     { value: true, name: "Yes" },

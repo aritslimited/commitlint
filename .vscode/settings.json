@@ -70,7 +70,12 @@
     "aritslimited",
     "branchlint",
     "commitlint",
+    "conventionalcommits",
     "docify",
-    "issuetype"
+    "Emran",
+    "Hossain",
+    "issuetype",
+    "wdhm",
+    "worklog"
   ]
 }
