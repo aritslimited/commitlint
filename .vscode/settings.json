@@ -67,10 +67,12 @@
     }
   ],
   "cSpell.words": [
+    "ARITS",
     "aritslimited",
     "branchlint",
     "commitlint",
     "conventionalcommits",
+    "czrc",
     "docify",
     "Emran",
     "Hossain",
