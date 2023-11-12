@@ -1,6 +1,6 @@
 # @aritslimited/commitlint
 
-A commit linting commitizen adapter & branch naming convention tool tailored for [ARITS Limited](https://www.aritsltd.com/) with Jira Issue & Project Tracking Software; to track commits to Jira issues and transition them to the next stage of development workflow automatically.
+A commit linting [commitizen](https://www.npmjs.com/package/commitizen?activeTab=readme) adapter & branch naming convention tool tailored for [ARITS Limited](https://www.aritsltd.com/) with Jira Issue & Project Tracking Software; to track commits to Jira issues and transition them to the next stage of development workflow automatically.
 
 ![npm (scoped)](https://img.shields.io/npm/v/%40aritslimited/commitlint?logo=npm&color=blue&link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2F%40aritslimited%2Fcommitlint)
 [![npm downloads](https://img.shields.io/npm/dm/%40aritslimited%2Fcommitlint)](http://npm-stat.com/charts.html?package=@aritslimited/commitlint&from=2023-11-01)
@@ -27,30 +27,30 @@ A commit linting commitizen adapter & branch naming convention tool tailored for
 You can install this package via npm or yarn. To install, run the following command:
 
 ```bash
-npm install --save-dev @aritslimited/commitlint boxen chalk dotenv inquirer node-fetch tslib
+npm install --save-dev @aritslimited/commitlint commitizen boxen chalk dotenv inquirer node-fetch tslib
 ```
 
 or
 
 ```bash
-yarn add -D @aritslimited/commitlint boxen chalk dotenv inquirer node-fetch tslib
+yarn add -D @aritslimited/commitlint commitizen boxen chalk dotenv inquirer node-fetch tslib
 ```
 
 or
 
 ```bash
-pnpm add -D @aritslimited/commitlint boxen chalk dotenv inquirer node-fetch tslib
+pnpm add -D @aritslimited/commitlint commitizen boxen chalk dotenv inquirer node-fetch tslib
 ```
 
 or
 
 ```bash
-bun add -D @aritslimited/commitlint boxen chalk dotenv inquirer node-fetch tslib
+bun add -D @aritslimited/commitlint commitizen boxen chalk dotenv inquirer node-fetch tslib
 ```
 
 ## Configuration
 
-Assuming you have installed [commitizen](https://www.npmjs.com/package/commitizen?activeTab=readme) installed as a dev dependency, run the following command **from project root** to start using this commitizen adapter along with commitizen:
+Run the following command **from project root** to start using this commitizen adapter along with commitizen:
 
 ```bash
 echo "{\"path\": \"@aritslimited/commitlint/dist/commitlint.config.js\"}" > ./.czrc

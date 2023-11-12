@@ -291,6 +291,15 @@ const prompter = async (cz: any, commit: any) => {
     { value: true, name: "Yes" },
     { value: false, name: "No" },
   ]
+  // valid branch names modifier function
+  const validBranchNames = (validBranchNameString: string) =>
+    validBranchNameString.split(/ /g).map((branch) => {
+      branch = branch.replace(/[-_]/g, " ")
+      return branch
+        .split(/\s+/)
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ")
+    })
   const multiChoiceSteps = {
     commitTypes: {
       question: "Select the type of update that you're committing:",
@@ -329,15 +338,23 @@ const prompter = async (cz: any, commit: any) => {
     },
     commitScopes: {
       question: "Select the scope of your changes:",
-      choices: [
-        { value: "aggregation", name: "Aggregation" },
-        { value: "data", name: "Data" },
-        { value: "intervention", name: "Intervention" },
-        { value: "knowledge-library", name: "Knowledge Library" },
-        { value: "research", name: "Research" },
-        { value: "generic", name: "Generic" },
-        { value: "ui", name: "UI" },
-      ],
+      choices: process.env.VALID_BRANCH_NAMES
+        ? process.env.VALID_BRANCH_NAMES.split(/[\s,]+/).map((validBranch) => {
+            return {
+              value: validBranch,
+              name: validBranchNames(validBranch),
+            }
+          })
+        : execSync(`git for-each-ref --format="%(refname:short)" refs/heads/`)
+            .toString()
+            .trim()
+            .split("\n")
+            .map((vb) => {
+              return {
+                value: vb,
+                name: validBranchNames(vb),
+              }
+            }),
     },
     isBreakingUpdate: {
       question: "Are there any breaking changes?",
