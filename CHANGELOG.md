@@ -1,5 +1,12 @@
 # CHANGELOG
 
+# [1.2.0](https://github.com/aritslimited/commitlint/compare/v1.1.3...v1.2.0) (2023-11-12)
+
+
+### Bug Fixes
+
+* **commitlint:** update scope static options to dynamic generation from branch names/working trees ([7ec90f0](https://github.com/aritslimited/commitlint/commit/7ec90f0284c3f81266033a2af7aae07dc9afee84))
+
 ## [1.1.3](https://github.com/aritslimited/commitlint/compare/v1.1.2...v1.1.3) (2023-11-09)
 
 ## [1.1.2](https://github.com/aritslimited/commitlint/compare/v1.1.1...v1.1.2) (2023-11-09)
